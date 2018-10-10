@@ -67,9 +67,9 @@ def api_results():
     with db.get_db_cursor(commit=True) as cur:
         reverse = request.args.get('reverse')
         if reverse is None:
-            cur.execute("SELECT * FROM survey_data ORDER BY survey_id DESC")
-        else:
             cur.execute("SELECT * FROM survey_data")
+        else:
+            cur.execute("SELECT * FROM survey_data ORDER BY ts DESC")
         rec = cur.fetchall()
     return json.dumps(rec, indent=2)
 
