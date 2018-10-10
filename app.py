@@ -51,16 +51,11 @@ def decline():
 @app.route('/survey', methods=['GET', 'POST'])
 def survey():
     if request.method == 'POST':
-        q1 = request.form['q1']
-        q2 = request.form['q2']
-        q3 = request.form['q3']
-        q4 = request.form['q4']
-        q5 = request.form['q5']
-        print(q1)
-        print(q2)
-        print(q3)
-        print(q4)
-        print(q5)
+        q1 = request.form.get('q1', False)
+        q2 = request.form.get('q2', False)
+        q3 = request.form.get('q3', False)
+        q4 = request.form.get('q4', False)
+        q5 = request.form.get('q5', False)
         with db.get_db_cursor(commit=True) as cur:
             cur.execute("insert into survey_data (q1, q2, q3, q4, q5) values (%s, %s, %s, %s, %s)", (q1, q2, q3, q4, q5))
         return render_template('thanks.html', data = survey_data)
@@ -72,7 +67,7 @@ def api_results():
     with db.get_db_cursor(commit=True) as cur:
         reverse = request.args.get('reverse')
         if reverse is None:
-            cur.execute("SELECT * FROM survey_data ORDER BY ts DESC")
+            cur.execute("SELECT * FROM survey_data ORDER BY ts ASC")
         else:
             cur.execute("SELECT * FROM survey_data")
         rec = cur.fetchall()
