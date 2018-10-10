@@ -4,9 +4,9 @@ body {
 
 #content {
     margin: 0 auto;
-    background-color: #deccba
+    background-color: #deccba;
 }
 
-#displaytoggle {
+.displaytoggle {
   display: none;
 }
