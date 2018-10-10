@@ -2,8 +2,11 @@ body {
   background-color: gray;
 }
 
+h1 {
+  text-align: center;
+}
 #content {
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 30px;
     width: 500px;
     background-color: #fff5ee;
@@ -11,4 +14,8 @@ body {
 
 .displaytoggle {
   display: none;
+}
+
+.pure-button {
+  margin: 10px;
 }

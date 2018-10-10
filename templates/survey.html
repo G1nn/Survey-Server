@@ -24,12 +24,16 @@
         {% endfor %}
         </select>
 
+        <div>
         <h4>{{ data.q4 }}</h4>
         <input type="checkbox" name="q4" id="q4" value="{{ data.checkbox }}">
         <label for="{{ data.checkbox }}">{{ data.checkbox }}</label>
+        </div>
 
-        <h4 class="displaytoggle">{{ data.q5 }}</h4>
-        <input class="displaytoggle" name="q5" type="text" maxlength="50" placeholder="I hate veggies. I only eat fried chicken.">
+        <div class="displaytoggle">
+        <h4>{{ data.q5 }}</h4>
+        <input name="q5" type="text" maxlength="50" placeholder="I hate veggies. I only eat fried chicken.">
+        </div>
 
         <button type="submit" class="pure-button pure-button-primary">Submit</button>
     </fieldset>
