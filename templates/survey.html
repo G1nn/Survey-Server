@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}survey{% endblock %}
+
+{% block content %}
+
+<form class="pure-form pure-form-stacked" method="POST" action="/survey">
+    <fieldset>
+
+        <h4>{{ data.q1 }}</h4>
+        <input name="q1" type="text" required minlength="3" maxlength="20" placeholder="Fried chicken">
+
+        <h4>{{ data.q2 }}</h4>
+        {% for option in data.options %}
+            <label class="pure-radio">
+                <input type="radio" name="q2" value="{{ option }}" required>
+                {{ option }}
+            </label>
+        {% endfor %}
+
+        <h4>{{ data.q3 }}</h4>
+        <select name="q3">
+        {% for s in data.selections %}
+            <option value="{{ s }}">{{ s }}</option>
+        {% endfor %}
+        </select>
+
+        <h4>{{ data.q4 }}</h4>
+        <input type="checkbox" id="q4" name="q4" value="{{ data.checkbox }}">
+        <label for="{{ data.checkbox }}">{{ data.checkbox }}</label>
+
+        <h4 class="displaytoggle">{{ data.q5 }}</h4>
+        <input class="displaytoggle" name="q5" type="text" maxlength="50" placeholder="I hate veggies. I only eat fried chicken.">
+
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+
+{% endblock %}

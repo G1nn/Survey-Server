@@ -1,0 +1,12 @@
+body {
+  background-color: gray;
+}
+
+#content {
+    margin: 0 auto;
+    background-color: #deccba
+}
+
+#displaytoggle {
+  display: none;
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}home{% endblock %}
+
+{% block content %}
+
+	<div>
+		<h2>{{ data.title }}</h2>
+		<p>{{ data.description }}</p>
+		<p>Would you like to take this survey?</p>
+		<a class="pure-button" href="/survey">Consent</a>
+		<a class="pure-button" href="/decline">Decline</a>
+	</div>
+
+{% endblock %}
